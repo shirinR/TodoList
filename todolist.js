@@ -104,9 +104,9 @@ var view ={
       var todosTextWithCompletion = '';
       var todo = todoList.todos[i];
       if(todo.completed === true){
-        todosLi.textContent ='(x)', this.todos[i].todoText;
+        todosLi.textContent ='(x) '+ todoList.todos[i].todoText;
       } else {
-        todosLi.textContent ='( )', this.todos[i].todoText;
+        todosLi.textContent ='( ) '+ todoList.todos[i].todoText;
       }
 
       todosUl.appendChild(todosLi);
