@@ -1,39 +1,20 @@
 var todoList = {
   todos: [],
-
-  displayTodo: function() {
-    if (this.todos.length === 0) {
-      console.log('This TodosList is Empty');
-    } else {
-      console.log('My Todos >>> ');
-      for (var i = 0; i < this.todos.length; i++) {
-        if (this.todos[i].completed === true) {
-          console.log('(x)', this.todos[i].todoText);
-        } else {
-          console.log('( )', this.todos[i].todoText);
-        }
-      }
-    }
-  },
   addTodo: function(todoText) {
     this.todos.push({
       todoText: todoText,
       completed: false
     });
-    this.displayTodo();
   },
   changeTodo: function(index, todoText) {
     this.todos[index].todoText = todoText;
-    this.displayTodo();
   },
   deleteTodo: function(position) {
     this.todos.splice(position, 1);
-    this.displayTodo();
   },
   toggoleCompleted: function(position) {
     var todo = todoList.todos[position];
     todo.completed = !(todo.completed);
-    this.displayTodo();
   },
   toggoleAll: function() {
     var totalTodos = this.todos.length;
@@ -57,52 +38,52 @@ var todoList = {
         this.todos[s].completed = true;
       }
     }
-
-    this.displayTodo();
   }
 };
 
 var handler ={
-  displayTodosButton: function() {
-    todoList.displayTodo();
-  },
   addTodosButton: function(){
     var userInput = document.getElementById('userInput');
     todoList.addTodo(userInput.value);
-    userInput.value ="";
+    userInput.value ='';
+    view.displayTodos();
   },
   changeTodosButton: function(){
     var indexInput = document.getElementById('indexInput');
     var todoTextInput = document.getElementById('todoTextInput');
     todoList.changeTodo(indexInput.valueAsNumber, todoTextInput.value);
-    indexInput.value = "";
-    todoTextInput.value="";
+    indexInput.value = '';
+    todoTextInput.value='';
+    view.displayTodos();
   },
   deleteTodosButton:function(){
     var deletePostionInput = document.getElementById('deletePostionInput');
     todoList.deleteTodo(deletePostionInput.valueAsNumber);
-    deletePostionInput.value ="";
+    deletePostionInput.value ='';
+    view.displayTodos();
   },
   toggoleCompletedButton: function(){
     var toggleCompleteInput = document.getElementById('toggleCompleteInput');
     todoList.toggoleCompleted(toggleCompleteInput.valueAsNumber);
-    toggleCompleteInput.value ="";
+    toggleCompleteInput.value ='';
+    view.displayTodos();
   },
   toggleAllButton: function() {
     todoList.toggoleAll();
+    view.displayTodos();
   }
 };
 
 
-var view ={
+var view = {
   displayTodos: function(){
     var todosUl = document.querySelector('ul');
     todosUl.innerHTML = '';
     for(var i=0; i< todoList.todos.length; i++){
       var todosLi = document.createElement('li');
-
       var todosTextWithCompletion = '';
       var todo = todoList.todos[i];
+
       if(todo.completed === true){
         todosTextWithCompletion = '(x) '+ todoList.todos[i].todoText;
       } else {
