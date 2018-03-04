@@ -104,11 +104,12 @@ var view ={
       var todosTextWithCompletion = '';
       var todo = todoList.todos[i];
       if(todo.completed === true){
-        todosLi.textContent ='(x) '+ todoList.todos[i].todoText;
+        todosTextWithCompletion = '(x) '+ todoList.todos[i].todoText;
       } else {
-        todosLi.textContent ='( ) '+ todoList.todos[i].todoText;
+        todosTextWithCompletion = '( ) '+ todoList.todos[i].todoText;
       }
 
+      todosLi.textContent = todosTextWithCompletion;
       todosUl.appendChild(todosLi);
     }
   }
