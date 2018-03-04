@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <link rel="stylesheet" href="style.css">
+    <!--<script src="script.js"></script>-->
+  </head>
+
+  <body>
+    <h1>Todos List!</h1>
+    <div>
+    <button onclick="handler.displayTodosButton()">Display Todos</button>
+    <button onclick="handler.toggleAllButton()">Toggle All</button>
+    </div>
+
+    <div>
+      <button onclick="handler.addTodosButton()">Add Todos</button>
+      <input type="text" id="userInput">
+    </div>
+
+    <div>
+      <button onclick="handler.changeTodosButton()">Change Todos</button>
+      <input type="number" id="indexInput">
+      <input type="text" id="todoTextInput">
+    </div>
+
+    <div>
+      <button onclick="handler.deleteTodosButton()">Delete Todos</button>
+      <input type="number" id="deletePostionInput">
+    </div>
+
+     <div>
+      <button onclick="handler.toggoleCompletedButton()">Toggle Complete Todos</button>
+      <input type="number" id="toggleCompleteInput">
+    </div>
+
+    <script src="todolist.js"></script>
+  </body>
+
+</html>
